@@ -6,7 +6,10 @@ class Ball;
 //◆◆◆を管理するクラス
 class Player : public GameObject
 {
+    int hModel;
     Ball* myBall;
+    float direction;
+    float power;
 public:
     //コンストラクタ
     Player(GameObject* parent);

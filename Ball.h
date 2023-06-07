@@ -29,4 +29,6 @@ public:
     void Release() override;
 
     void AddForce(XMVECTOR f);
+
+    XMFLOAT3 GetNextPosition() { return GetPosition() + velocity; }
 };

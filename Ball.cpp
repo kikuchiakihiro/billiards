@@ -28,11 +28,50 @@ void Ball::Update()
 
    
     float len = Length(velocity);
-    len -= 0.001f;
+    len -= 0.01f;
+    if (len < 0) len = 0.0f;
     velocity = XMVector3Normalize(velocity) * len;
 
-    transform_.position_ += velocity;
+    XMFLOAT3 next = transform_.position_ + velocity;
+    if (next.x >= 20.0f) {
+        XMVECTOR n = XMVectorSet(-1, 0, 0, 0);
+        n = n * -1;
+        XMVECTOR ipvec = XMVector3Dot(velocity, n);
+        float ip = XMVectorGetX(ipvec);
+        XMVECTOR push = n * ip;
+        XMVECTOR th = velocity - push;
+        push *= -1;
+        velocity = push + th;
 
+        //XMFLOAT3 f;
+        //XMStoreFloat3(&f, velocity);
+        //f.x = -f.x;
+        ////f.z = 0;
+        //velocity=XMLoadFloat3(&f);
+
+    }
+    if (next.x <= -20.0f) {
+        XMFLOAT3 f;
+        XMStoreFloat3(&f, velocity);
+        f.x = -f.x;
+        //f.z = 0;
+        velocity = XMLoadFloat3(&f);
+    }
+    if (next.z >= 20.0f) {
+        XMFLOAT3 f;
+        XMStoreFloat3(&f, velocity);
+        //f.x = 0;
+        f.z = -f.z;
+        velocity = XMLoadFloat3(&f);
+    }
+    if (next.z <= -20.0f) {
+        XMFLOAT3 f;
+        XMStoreFloat3(&f, velocity);
+        //f.x = 0;
+        f.z = -f.z;
+        velocity = XMLoadFloat3(&f);
+    }
+    transform_.position_ += velocity;
 }
 
 //•`‰æ
