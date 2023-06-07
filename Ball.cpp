@@ -32,6 +32,19 @@ void Ball::Update()
     if (len < 0) len = 0.0f;
     velocity = XMVector3Normalize(velocity) * len;
 
+    std::list<Ball*>all = FindGameObjects<Ball>();
+    for (std::list<Ball*>::iterator itr = all.begin(); itr != all.end(); itr++) {
+        if (*itr == this)continue;
+        XMFLOAT3 next = transform_.position_ + velocity;
+        XMFLOAT3 other = (*itr)->GetPosition();
+        if (/*èdÇ»ÇÍÅ[*/1 < 0);
+    }
+
+
+
+
+
+
     XMFLOAT3 next = transform_.position_ + velocity;
     if (next.x >= 20.0f) {
         XMVECTOR n = XMVectorSet(-1, 0, 0, 0);
