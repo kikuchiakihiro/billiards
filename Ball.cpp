@@ -7,7 +7,7 @@
 Ball::Ball(GameObject* parent)
     :GameObject(parent, "Ball"), hModel(-1)
 {
-    
+    velocity = XMVectorSet(0, 0, 0, 0);
 }
 
 //デストラクタ
@@ -25,6 +25,14 @@ void Ball::Initialize()
 //更新
 void Ball::Update()
 {
+
+   
+    float len = Length(velocity);
+    len -= 0.001f;
+    velocity = XMVector3Normalize(velocity) * len;
+
+    transform_.position_ += velocity;
+
 }
 
 //描画
@@ -46,4 +54,9 @@ void Ball::SetNumber(int no)
 //開放
 void Ball::Release()
 {
+}
+
+void Ball::AddForce(XMVECTOR f)
+{
+    velocity += f;
 }

@@ -1,19 +1,18 @@
 #pragma once
 #include "Engine/GameObject.h"
 
+class Ball;
+
 //◆◆◆を管理するクラス
-class Ball : public GameObject
+class Player : public GameObject
 {
-    int hModel;    //モデル番号
-    int number;
-    XMVECTOR velocity;
-   
+    Ball* myBall;
 public:
     //コンストラクタ
-    Ball(GameObject* parent);
+    Player(GameObject* parent);
 
     //デストラクタ
-    ~Ball();
+    ~Player();
 
     //初期化
     void Initialize() override;
@@ -24,9 +23,8 @@ public:
     //描画
     void Draw() override;
 
-    void SetNumber(int no);
     //開放
     void Release() override;
-
-    void AddForce(XMVECTOR f);
+    void SetMyBall(Ball* ball) { myBall = ball; }
 };
+
