@@ -2,6 +2,17 @@
 #include "Ball.h"
 #include "Engine/Input.h"
 #include "Engine/Model.h"
+
+
+/*
+* キーボードでキューの方向選択、強さのゲージなどを出しスペースキーで決定
+* キューを当てて、球を打つ
+* 
+* 
+* 
+*/
+
+
 //コンストラクタ
 Player::Player(GameObject* parent)
     :GameObject(parent, "Player")
@@ -26,9 +37,9 @@ void Player::Initialize()
 void Player::Update()
 {
     if (Input::IsKey(DIK_A))
-        direction -= 0.01f;
+        direction -= 0.1f;
     if (Input::IsKey(DIK_D))
-        direction += 0.01f;
+        direction += 0.1f;
     if (Input::IsKey(DIK_SPACE)) {
         XMVECTOR base = XMVectorSet(0, 0, power, 0);//回転していないときに移動するベクトル
         XMMATRIX yrot = XMMatrixRotationY(direction);//回転行列をつくって

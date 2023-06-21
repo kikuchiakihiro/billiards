@@ -30,5 +30,6 @@ public:
 
     void AddForce(XMVECTOR f);
 
+    XMVECTOR GetVelocity() { return velocity; }
     XMFLOAT3 GetNextPosition() { return GetPosition() + velocity; }
 };
