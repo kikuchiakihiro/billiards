@@ -10,6 +10,8 @@ class Player : public GameObject
     Ball* myBall;
     float direction;
     float power;
+    int ShootPower;
+    int ShootLv;
 public:
     //コンストラクタ
     Player(GameObject* parent);
