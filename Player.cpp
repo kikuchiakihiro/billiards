@@ -85,7 +85,7 @@ void Player::Update()
             nowHp_ = 0;
             Isincreaseing = true;
         }
-        nowHp_ = 0;
+        
     }
     
     /*if (Input::IsKey(DIK_SPACE))  
