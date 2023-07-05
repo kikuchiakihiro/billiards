@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Ball.h"
 #include "Gauge.h"
+#include "Ready.h"
 #include "Engine/Input.h"
 #include "Engine/Model.h"
 
@@ -40,6 +41,11 @@ void Player::Initialize()
 //çXêV
 void Player::Update()
 {
+    Ready* pReady = FindGameObject<Ready>();
+    if (pReady != nullptr && !pReady->Finished())
+        return;
+    
+
     ShootLv = 0;
 
     if (Input::IsKey(DIK_A))
