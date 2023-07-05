@@ -44,14 +44,8 @@ public:
         maxHp_ = maxHp;
         animHp_ = (animHp_ * 9 + nowHp_) / 10;*/
     }
-    void SetPosition(float x, float y)
-    {
-        /*  nowHp_ = nowHp;
-          maxHp_ = maxHp;
-          animHp_ = (animHp_ * 9 + nowHp_) / 10;*/
-        transform_.position_.x = x;
-        transform_.position_.y = y;
-    }
+    void SetPosition(float x, float y);
+   
 
     void AddValue(float v);
 
