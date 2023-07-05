@@ -87,17 +87,7 @@ void Player::Update()
         }
         
     }
-    
-    /*if (Input::IsKey(DIK_SPACE))  
-    {
-        nowHp_+= 20;
-        if (nowHp_ > maxHp_) {
-            nowHp_ = maxHp_;
-        }
-    }*/
-       
-  
-   
+      
     Gauge* pGauge = (Gauge*)FindObject("Gauge");
     pGauge->SetHp(nowHp_, maxHp_);
 
@@ -110,7 +100,7 @@ void Player::Update()
             myBall->AddForce(v);//‚±‚ê‚ª‰ñ“]Œã‚ÌˆÚ“®ƒxƒNƒgƒ‹
 
         }
-    
+       
 }
 
 //•`‰æ
