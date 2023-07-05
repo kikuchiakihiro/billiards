@@ -70,11 +70,12 @@ void Player::Update()
 
     
     
-    if (Input::IsKey(DIK_H) && Isincreaseing == true)
+   /* if (Input::IsKey(DIK_H) && Isincreaseing == true)
     {
         nowHp_ += 1;
         if (nowHp_ > maxHp_) {
             nowHp_ = maxHp_;
+           
             Isincreaseing = false;
         }
     }
@@ -83,10 +84,11 @@ void Player::Update()
         nowHp_ -= 1;
         if (nowHp_ < 0) {
             nowHp_ = 0;
+            
             Isincreaseing = true;
         }
         
-    }
+    }*/
       
     Gauge* pGauge = (Gauge*)FindObject("Gauge");
     pGauge->SetHp(nowHp_, maxHp_);

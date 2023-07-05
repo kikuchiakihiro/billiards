@@ -1,13 +1,21 @@
 #pragma once
 #include "Engine/GameObject.h"
-
+//gaugeクラスは、gaugeの最大を100％（つまり1，0）となるように作る
+// 表示の大きさによって、表示サイズを変えれるようにする
+// 表示する位置は、外から指定できるようにする。
+// 加算する関数と、減算する関数と、現在の値を取得する関数を用意する。
 //◆◆◆を管理するクラス
 class Gauge : public GameObject
 {
     int hPictGauge_;
     int hPictFrame_;
-    int nowHp_, maxHp_;
-    int animHp_;
+    //int nowHp_, maxHp_;
+    // int animHp_;
+    float nowHp_;
+    const float maxHp_ = 1.0f;
+    float animHp_;
+
+    int ImageWidth, ImageHeight;
 public:
     //コンストラクタ
     Gauge(GameObject* parent);
@@ -27,10 +35,19 @@ public:
     //開放
     void Release() override;
 
-    void SetHp(int nowHp, int maxHp)
+    void SetHp(float nowHp,  float maxHp)
     {
-        nowHp_ = nowHp;
+      /*  nowHp_ = nowHp;
         maxHp_ = maxHp;
-        animHp_ = (animHp_ * 9 + nowHp_) / 10;
+        animHp_ = (animHp_ * 9 + nowHp_) / 10;*/
+    }
+    void SetPosition(float x, float y)
+    {
+        /*  nowHp_ = nowHp;
+          maxHp_ = maxHp;
+          animHp_ = (animHp_ * 9 + nowHp_) / 10;*/
+        transform_.position_.x = x;
+        transform_.position_.y = y;
+
     }
 };

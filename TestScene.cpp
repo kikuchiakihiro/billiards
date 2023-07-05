@@ -22,11 +22,11 @@ void TestScene::Initialize()
 	}
 	Player* p = Instantiate<Player>(this);
 	Ball* b = Instantiate<Ball>(this);
-	Instantiate<Gauge>(this); 
+	Gauge* g = Instantiate<Gauge>(this); 
 	b->SetPosition(-10, 0, 0);
 	b->SetNumber(0);
 	p->SetMyBall(b);
-
+	g->SetPosition(0.8, -0.5);
 }
 
 //XV
