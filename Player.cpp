@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Ball.h"
+#include "Gauge.h"
 #include "Engine/Input.h"
 #include "Engine/Model.h"
 
@@ -17,7 +18,7 @@
 
 //コンストラクタ
 Player::Player(GameObject* parent)
-    :GameObject(parent, "Player")
+    :GameObject(parent, "Player"), maxHp_(120), nowHp_(0)
 {
     direction = 0.0f;
     ShootPower = 1;
@@ -46,7 +47,8 @@ void Player::Update()
     if (Input::IsKey(DIK_D))
         direction += 0.05f;
 
-    if (Input::IsKeyDown(DIK_P)) {
+    /*if(Input::IsKeyDown(DIK_P))
+    {
 
         if (ShootLv <= 10) {
             ShootLv++;
@@ -63,9 +65,41 @@ void Player::Update()
         }
 
 
-    }
+    }*/
     
 
+    
+    
+    if (Input::IsKey(DIK_H) && Isincreaseing == true)
+    {
+        nowHp_ += 1;
+        if (nowHp_ > maxHp_) {
+            nowHp_ = maxHp_;
+            Isincreaseing = false;
+        }
+    }
+    else if (Input::IsKey(DIK_H) && Isincreaseing == false)
+    {
+        nowHp_ -= 1;
+        if (nowHp_ < 0) {
+            nowHp_ = 0;
+            Isincreaseing = true;
+        }
+        nowHp_ = 0;
+    }
+    
+    /*if (Input::IsKey(DIK_SPACE))  
+    {
+        nowHp_+= 20;
+        if (nowHp_ > maxHp_) {
+            nowHp_ = maxHp_;
+        }
+    }*/
+       
+  
+   
+    Gauge* pGauge = (Gauge*)FindObject("Gauge");
+    pGauge->SetHp(nowHp_, maxHp_);
 
         if (Input::IsKeyUp(DIK_SPACE)) {
 

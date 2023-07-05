@@ -1,6 +1,7 @@
 #include "TestScene.h"
 #include "Ball.h"
 #include "Player.h"
+#include "Gauge.h"
 #include "Engine/Camera.h"
 //コンストラクタ
 TestScene::TestScene(GameObject * parent)
@@ -21,6 +22,7 @@ void TestScene::Initialize()
 	}
 	Player* p = Instantiate<Player>(this);
 	Ball* b = Instantiate<Ball>(this);
+	Instantiate<Gauge>(this); 
 	b->SetPosition(-10, 0, 0);
 	b->SetNumber(0);
 	p->SetMyBall(b);

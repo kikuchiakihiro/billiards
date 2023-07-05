@@ -1,25 +1,19 @@
 #pragma once
 #include "Engine/GameObject.h"
 
-class Ball;
-
 //◆◆◆を管理するクラス
-class Player : public GameObject
+class Gauge : public GameObject
 {
-    int hModel;
-    Ball* myBall;
-    float direction;
-    float power;
-    int ShootPower;
-    int ShootLv;
-    bool Isincreaseing = true ;
+    int hPictGauge_;
+    int hPictFrame_;
     int nowHp_, maxHp_;
+    int animHp_;
 public:
     //コンストラクタ
-    Player(GameObject* parent);
+    Gauge(GameObject* parent);
 
     //デストラクタ
-    ~Player();
+    ~Gauge();
 
     //初期化
     void Initialize() override;
@@ -32,6 +26,11 @@ public:
 
     //開放
     void Release() override;
-    void SetMyBall(Ball* ball) { myBall = ball; }
-};
 
+    void SetHp(int nowHp, int maxHp)
+    {
+        nowHp_ = nowHp;
+        maxHp_ = maxHp;
+        animHp_ = (animHp_ * 9 + nowHp_) / 10;
+    }
+};
