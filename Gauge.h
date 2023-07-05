@@ -17,6 +17,9 @@ class Gauge : public GameObject
 
     int ImageWidth, ImageHeight;
 public:
+
+    static constexpr float MIN = 0.0f;
+    static constexpr float MAX = 1.0f;
     //コンストラクタ
     Gauge(GameObject* parent);
 
@@ -48,6 +51,12 @@ public:
           animHp_ = (animHp_ * 9 + nowHp_) / 10;*/
         transform_.position_.x = x;
         transform_.position_.y = y;
-
     }
+
+    void AddValue(float v);
+
+    void SetValue(float v);
+
+    float GetValue();
+
 };

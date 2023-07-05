@@ -31,9 +31,6 @@ void Gauge::Initialize()
 //XV
 void Gauge::Update()
 {
-    nowHp_ += 0.01f;
-    if (nowHp_ > maxHp_)
-        nowHp_ = 0.0f;
 }
 
 //•`‰æ
@@ -53,7 +50,37 @@ void Gauge::Draw()
     
 }
 
+void Gauge::SetPosition(float x, float y)
+{
+    /*  nowHp_ = nowHp;
+      maxHp_ = maxHp;
+      animHp_ = (animHp_ * 9 + nowHp_) / 10;*/
+    transform_.position_.x = x;
+    transform_.position_.y = y;
+}
+
+
+
+void Gauge::AddValue(float v)
+{
+    nowHp_ += v;
+    if (nowHp_ > 0.0f)
+        nowHp_ = 0.0f;
+    else if (nowHp_ > maxHp_)
+        nowHp_ = maxHp_;
+}
+
+void Gauge::SetValue(float v)
+{
+}
+
+float Gauge::GetValue()
+{
+    return 0.0f;
+}
+
 //ŠJ•ú
 void Gauge::Release()
 {
+
 }
