@@ -26,7 +26,7 @@ void Botton1::Initialize()
 //çXêV
 void Botton1::Update()
 {
-	if (Input::IsMouseButton(0)) {
+	if (Input::IsMouseButton(1)) {
 		Image::SetAlpha(hPict_, 0);
 		Image::SetAlpha(hPictD_, 255);
 	}
