@@ -101,8 +101,7 @@
     <ClCompile Include="Gauge.cpp" />
     <ClCompile Include="Ready.cpp" />
     <ClCompile Include="TitleScene.cpp" />
-    <ClCompile Include="Botton1.cpp" />
-    <ClCompile Include="Botton2.cpp" />
+    <ClCompile Include="Button.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -180,8 +179,7 @@
     <ClInclude Include="Gauge.h" />
     <ClInclude Include="Ready.h" />
     <ClInclude Include="TitleScene.h" />
-    <ClInclude Include="Botton1.h" />
-    <ClInclude Include="Botton2.h" />
+    <ClInclude Include="Button.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\Simple2D.hlsl">

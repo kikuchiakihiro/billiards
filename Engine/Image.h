@@ -91,4 +91,6 @@ namespace Image
 	int GetWidth(int handle);
 
 	int GetHeight(int handle);
+
+	XMFLOAT3 GetSize(int handle);
 }

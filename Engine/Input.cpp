@@ -1,5 +1,6 @@
 #include "Input.h"
 #include "Global.h"
+#include <string>
 
 namespace Input
 {
@@ -169,6 +170,8 @@ namespace Input
 	{
 		mousePos_.x = x;
 		mousePos_.y = y;
+		std::string resStr = std::to_string(x) + "," + std::to_string(y) + "\n";
+		OutputDebugString(resStr.c_str());
 	}
 
 
