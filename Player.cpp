@@ -23,7 +23,7 @@ Player::Player(GameObject* parent)
 {
     direction = 0.0f;
     ShootPower = 1;
-    power = 0.3f;
+    power = 1.0f;
     hModel = Model::Load("Ball1.fbx");
     transform_.scale_ = XMFLOAT3(0.2, 0.2, 0.2);
 }
@@ -99,7 +99,7 @@ void Player::Update()
     Gauge* pGauge = (Gauge*)FindObject("Gauge");
     pGauge->SetHp(nowHp_, maxHp_);
 
-        if (Input::IsKeyUp(DIK_SPACE)) {
+        if (Input::IsKey (DIK_SPACE)) {
 
            
             XMVECTOR base = XMVectorSet(0, 0, power, 0);//‰ñ“]‚µ‚Ä‚¢‚È‚¢‚Æ‚«‚ÉˆÚ“®‚·‚éƒxƒNƒgƒ‹
